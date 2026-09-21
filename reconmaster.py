@@ -105,9 +105,11 @@ def scan(target, args):
     high = sum(1 for f in findings if f["severity"] == "high")
     print(f"[+] {len(findings)} findings ({crit} critical, {high} high)")
 
+    from core.export import write_txt_reports
+    loot = write_txt_reports(ctx, report, findings)
     html = report.to_html()
     report.finish()
-    print(f"[+] Report: {html}  |  DB: reconmaster.db (scan #{report.scan_id})")
+    print(f"[+] Report: {html}  |  TXT: {loot}/  |  DB: reconmaster.db (scan #{report.scan_id})")
 
 HELP_EXAMPLES = """\
 examples:

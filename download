@@ -1,0 +1,22 @@
+# ReconMaster runtime output
+*.db
+*.db-wal
+*.db-shm
+report_*.html
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+
+# OS / editor
+.DS_Store
+*.swp
+.idea/
+.vscode/
+
+# per-scan TXT loot
+loot/

@@ -165,6 +165,9 @@ scheduling it automatically once `subdomains` exists.
 
 ## 📄 Output
 
+- `loot/<target>_<scan_id>/` — a **plain-text file per search**: `subdomains.txt`,
+  `live_hosts.txt`, `live_urls.txt`, `wayback_urls.txt`, `dns.txt`, `whois.txt`,
+  plus `findings.txt` (severity/score-sorted) and `summary.txt`
 - `report_<target>_<scan_id>.html` — severity-sorted, with remediation hints
 - `reconmaster.db` — full history; re-runs dedup and flag `[NEW]` findings
 - Console — live, color-coded by severity
