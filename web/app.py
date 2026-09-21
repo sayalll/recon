@@ -62,7 +62,9 @@ def do_scan(target: str, q: "queue.Queue"):
     ctx = ScanContext(target, ScopeGuard(target), cfg, report)
     try:
         run_pipeline(ctx, ("passive", "active", "vuln"))
-        run_triage(report, cfg, ctx)
+        findings = run_triage(report, cfg, ctx)
+        from core.export import write_txt_reports
+        write_txt_reports(ctx, report, findings)
     finally:
         report.finish()
         q.put({"type": "done"})
